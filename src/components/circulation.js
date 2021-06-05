@@ -2,7 +2,7 @@ import { Button, Paper, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { useEffect, useState } from "react";
 import { getFUSDSupply } from "../utils/fusdSupply";
-import { getUsdcSwap } from "../utils/pegSwap";
+import { getFuseSwap } from "../utils/pegSwap";
 
 
 const useStyles = makeStyles(() => ({
@@ -18,10 +18,10 @@ const Circulation = () => {
 
     const getCirculation = async () => {
         let fuse = await getFUSDSupply();
-        let usdc = await getUsdcSwap();
+        let fuseSwap = await getFuseSwap();
         fuse = fuse.toFixed(3);
-        usdc = usdc.toFixed(3)
-        let circulation = fuse - usdc;
+        fuseSwap = fuseSwap.toFixed(3)
+        let circulation = fuse - fuseSwap;
         setFuse(circulation.toFixed(3).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","))
     }
     useEffect(() => {

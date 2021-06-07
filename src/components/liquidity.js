@@ -1,4 +1,4 @@
-import { Button, Paper, Typography } from "@material-ui/core";
+import { Paper, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 
@@ -6,28 +6,29 @@ const useStyles = makeStyles(() => ({
     paper: {
         backgroundColor: "#b7feb8",
         padding: "1.5rem",
-        marginTop: "1rem"
     },
-    button: {
-        marginRight: "0.3rem"
-    }
+    swap: {
+        fontFamily: "Orbitron",
+        fontWeight: "700",
+    },
 }));
 
 
-const Liquidity = () => {
+const Liquidity = ({ usdcSwap, fuseSwap }) => {
     const classes = useStyles();
+
 
     return (
         <Paper elevation={3} className={classes.paper}>
             <Typography variant="h4" gutterBottom>
-                Add or Remove Liquidity
+                Liquidity
             </Typography>
-            <Button variant="outlined" className={classes.button} size="large" >
-                fUSD
-            </Button>
-            <Button variant="outlined" className={classes.button} size="large" >
-                USDC
-            </Button>
+            <Typography variant="h5" className={classes.swap} gutterBottom>
+                {usdcSwap} USDC - {fuseSwap} fUSD
+            </Typography>
+            <Typography variant="h6" gutterBottom>
+                Pegswap contract liquidity shows how much USDC & fUSD are in the pool and can be swapped
+            </Typography>
         </Paper>
     );
 }

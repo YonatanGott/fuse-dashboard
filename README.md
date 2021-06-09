@@ -3,3 +3,5 @@
 ### Built in React with Material UI and Nivo Graphs
 
 After cloning => npm install => npm start
+
+### Deployed on Netlify - https://fuse-dashboard.netlify.app/
